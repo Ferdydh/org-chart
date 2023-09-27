@@ -39,6 +39,7 @@ export class OrgChart {
             generateRoot: null,
 
             /*  INTENDED FOR PUBLIC OVERRIDE */
+            enableZoom: false,
             svgWidth: 800,   // Configure svg width
             svgHeight: window.innerHeight - 100,  // Configure svg height
             container: "body",  // Set parent container, either CSS style selector or DOM element
@@ -605,9 +606,13 @@ export class OrgChart {
             .attr("font-family", attrs.defaultFont)
 
         if (attrs.firstDraw) {
-            svg.call(attrs.zoomBehavior)
-                .on("dblclick.zoom", null)
-                .attr("cursor", "move")
+            if (attrs.enableZoom) {
+                svg.call(attrs.zoomBehavior)
+                    .on("dblclick.zoom", null)
+                    .attr("cursor", "move")
+            } else {
+                svg.on('.zoom', null);
+            }
         }
 
         attrs.svg = svg;
