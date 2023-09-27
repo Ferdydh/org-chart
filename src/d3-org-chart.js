@@ -39,8 +39,6 @@ export class OrgChart {
             generateRoot: null,
 
             /*  INTENDED FOR PUBLIC OVERRIDE */
-            enableZoom: false,
-
             svgWidth: 800,   // Configure svg width
             svgHeight: window.innerHeight - 100,  // Configure svg height
             container: "body",  // Set parent container, either CSS style selector or DOM element
