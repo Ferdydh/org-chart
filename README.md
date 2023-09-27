@@ -1,7 +1,11 @@
 
 # Highly customizable d3 based organization chart
 
-<span class="badge-npmversion"><a href="https://www.npmjs.com/package/@ferdydh/d3-org-chart" title="View this project on NPM"><img src="https://img.shields.io/npm/v/d3-org-chart.svg" alt="NPM version" /></a></span>
+<span class="badge-npmversion">
+     <a href="https://www.npmjs.com/package/@ferdydh/d3-org-chart" title="View this project on NPM">
+          <img src="https://img.shields.io/npm/v/@ferdydh/d3-org-chart.svg" alt="NPM version" />
+     </a>
+</span>
 
 
 Highly customizable org chart built with d3 v7.
