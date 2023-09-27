@@ -28,6 +28,9 @@ export interface Point {
  * of the organization chart object, per D3 standard.
  */
 export interface StatePublic<Datum> {
+  enableZoom: boolean;
+
+  // 
   id: string;
   firstDraw: boolean;
   svgWidth: number;

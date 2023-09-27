@@ -39,6 +39,7 @@ export class OrgChart {
             generateRoot: null,
 
             /*  INTENDED FOR PUBLIC OVERRIDE */
+            enableZoom: false,
 
             svgWidth: 800,   // Configure svg width
             svgHeight: window.innerHeight - 100,  // Configure svg height
@@ -559,15 +560,18 @@ export class OrgChart {
             };
 
             // Get zooming function
-            behaviors.zoom = attrs.createZoom()
-                .clickDistance(10)
-                .on('start', (event, d) => attrs.onZoomStart(event))
-                .on('end', (event, d) => attrs.onZoomEnd(event))
-                .on("zoom", (event, d) => {
-                    attrs.onZoom(event);
-                    this.zoomed(event, d);
-                })
-                .scaleExtent(attrs.scaleExtent)
+
+            if (enableZoom) {
+                behaviors.zoom = attrs.createZoom()
+                    .clickDistance(10)
+                    .on('start', (event, d) => attrs.onZoomStart(event))
+                    .on('end', (event, d) => attrs.onZoomEnd(event))
+                    .on("zoom", (event, d) => {
+                        attrs.onZoom(event);
+                        this.zoomed(event, d);
+                    })
+                    .scaleExtent(attrs.scaleExtent)
+            }
             attrs.zoomBehavior = behaviors.zoom;
         }
 
