@@ -561,7 +561,7 @@ export class OrgChart {
 
             // Get zooming function
 
-            if (enableZoom) {
+            if (attrs.enableZoom) {
                 behaviors.zoom = attrs.createZoom()
                     .clickDistance(10)
                     .on('start', (event, d) => attrs.onZoomStart(event))
