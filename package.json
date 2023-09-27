@@ -23,12 +23,12 @@
   },
   "jsnext:main": "index",
   "bugs": {
-    "url": "https://github.com/bumbeishvili/d3-organization-chart/issues"
+    "url": "https://github.com/Ferdydh/org-chart/issues"
   },
-  "homepage": "https://github.com/bumbeishvili/d3-organization-chart#readme",
+  "homepage": "https://github.com/Ferdydh/org-chart/#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bumbeishvili/d3-organization-chart.git"
+    "url": "https://github.com/Ferdydh/org-chart/.git"
   },
   "scripts": {
     "start": "nodemon ",
