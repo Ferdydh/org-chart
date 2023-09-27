@@ -12,6 +12,7 @@
     "hierarchy",
     "employee"
   ],
+  "types": "types/index.d.ts",
   "license": "MIT",
   "main": "build/d3-org-chart.min.js",
   "jsdelivr": "build/d3-org-chart.min.js",
