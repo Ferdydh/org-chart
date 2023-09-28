@@ -75,7 +75,7 @@ export interface StatePublic<Datum> {
   compactMarginPair: (node: HierarchyNode<Datum>) => number;
   compactMarginBetween: (node: HierarchyNode<Datum>) => number;
   /** A function which is triggered when the node is clicked. */
-  onNodeClick: (node: NodeId) => void;
+  onNodeClick: (node: HierarchyNode<Datum>) => void;
   linkGroupArc: Link<any, DefaultLinkObject, [number, number]>;
   /** A function which renders the given node as HTML content. */
   nodeContent: (
