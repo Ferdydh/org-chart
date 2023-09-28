@@ -29,7 +29,7 @@ export interface Point {
  */
 export interface StatePublic<Datum> {
   enableZoom: boolean;
-  enableDrag: boolean;
+  startExpanded: boolean;
 
   // 
   id: string;

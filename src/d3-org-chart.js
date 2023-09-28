@@ -40,6 +40,8 @@ export class OrgChart {
 
             /*  INTENDED FOR PUBLIC OVERRIDE */
             enableZoom: false,
+            startExpanded: false,
+
             svgWidth: 800,   // Configure svg width
             svgHeight: window.innerHeight - 100,  // Configure svg height
             container: "body",  // Set parent container, either CSS style selector or DOM element
@@ -469,6 +471,10 @@ export class OrgChart {
         });
 
         this.initializeEnterExitUpdatePattern();
+
+        if (attrs.startExpanded) {
+            this.expandAll();
+        }
     }
 
     initializeEnterExitUpdatePattern() {
