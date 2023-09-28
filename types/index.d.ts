@@ -29,7 +29,6 @@ export interface Point {
  */
 export interface StatePublic<Datum> {
   enableZoom: boolean;
-  startExpanded: boolean;
 
   // 
   id: string;
@@ -197,6 +196,7 @@ export class OrgChart<Datum> {
     params: { animate?: boolean; scale?: boolean };
   }): void;
   fit(params?: { animate?: boolean; nodes?: Iterable<HierarchyNode<Datum>>; scale?: boolean }): this;
+  fitExact(params?: { animate?: boolean; nodes?: Iterable<HierarchyNode<Datum>>; scale?: boolean }): this;
   setExpanded(nodeId: NodeId, isExpanded?: boolean): this;
   setCentered(nodeId: NodeId): this;
   setHighlighted(nodeId: NodeId): this;

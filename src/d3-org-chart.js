@@ -40,7 +40,6 @@ export class OrgChart {
 
             /*  INTENDED FOR PUBLIC OVERRIDE */
             enableZoom: false,
-            startExpanded: false,
 
             svgWidth: 800,   // Configure svg width
             svgHeight: window.innerHeight - 100,  // Configure svg height
@@ -471,10 +470,6 @@ export class OrgChart {
         });
 
         this.initializeEnterExitUpdatePattern();
-
-        if (attrs.startExpanded) {
-            this.expandAll();
-        }
     }
 
     initializeEnterExitUpdatePattern() {
@@ -1577,7 +1572,7 @@ export class OrgChart {
     fit({ animate = true, nodes, scale = true, onCompleted = () => { } } = {}) {
         const attrs = this.getChartState();
         const { root } = attrs;
-        let descendants = nodes ? nodes : root.descendants();
+        let descendants = nodes || root.descendants();
         const minX = d3.min(descendants, d => d.x + attrs.layoutBindings[attrs.layout].nodeLeftX(d))
         const maxX = d3.max(descendants, d => d.x + attrs.layoutBindings[attrs.layout].nodeRightX(d))
         const minY = d3.min(descendants, d => d.y + attrs.layoutBindings[attrs.layout].nodeTopY(d))
@@ -1590,6 +1585,25 @@ export class OrgChart {
             y0: minY - 50,
             y1: maxY + 50,
 
+        });
+        return this;
+    }
+
+    fitExact({ animate = true, nodes, scale = true, onCompleted = () => { } } = {}) {
+        const attrs = this.getChartState();
+        const { root } = attrs;
+        let descendants = nodes || root.descendants();
+        const minX = d3.min(descendants, d => d.x + attrs.layoutBindings[attrs.layout].nodeLeftX(d))
+        const maxX = d3.max(descendants, d => d.x + attrs.layoutBindings[attrs.layout].nodeRightX(d))
+        const minY = d3.min(descendants, d => d.y + attrs.layoutBindings[attrs.layout].nodeTopY(d))
+        const maxY = d3.max(descendants, d => d.y + attrs.layoutBindings[attrs.layout].nodeBottomY(d))
+
+        this.zoomTreeBounds({
+            params: { animate: animate, scale, onCompleted },
+            x0: minX,
+            x1: maxX,
+            y0: minY,
+            y1: maxY,
         });
         return this;
     }
